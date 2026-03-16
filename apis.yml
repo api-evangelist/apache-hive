@@ -1,0 +1,36 @@
+aid: apache-hive
+name: Apache Hive
+description: >-
+  Apache Hive is a data warehouse software that facilitates reading, writing, and managing large datasets residing in distributed storage using SQL. It provides a SQL-like interface called HiveQL for querying data stored in Hadoop.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Data Warehouse
+  - SQL
+  - Big Data
+  - Hadoop
+  - ETL
+created: '2026-03-16'
+modified: '2026-03-16'
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/apache-hive/refs/heads/main/apis.yml
+specificationVersion: '0.19'
+apis:
+  - aid: apache-hive:apache-hive
+    name: Apache Hive
+    description: >-
+      Hive provides HiveServer2 with a Thrift API for JDBC/ODBC connectivity, a Metastore API (Thrift) for metadata management, the Beeline CLI for interactive queries, and WebHCat REST API for job submission and metadata operations.
+    humanURL: https://cwiki.apache.org/confluence/display/Hive/Home
+    tags:
+      - SQL
+      - JDBC
+      - Thrift
+      - Metastore
+    properties:
+      - type: Documentation
+        url: https://cwiki.apache.org/confluence/display/Hive/Home
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
