@@ -1,0 +1,7 @@
+{
+  "name": "mydb",
+  "comment": "My analytics database",
+  "location": "hdfs://namenode/user/hive/warehouse/mydb.db",
+  "ownerName": "hive",
+  "ownerType": "USER"
+}

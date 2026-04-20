@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/apache-hive/json-schema/hive-webhcat-partition-schema.json",
+  "title": "Partition",
+  "type": "object",
+  "description": "Hive table partition",
+  "properties": {
+    "tableName": {
+      "type": "string",
+      "description": "Table name",
+      "example": "sales"
+    },
+    "dbName": {
+      "type": "string",
+      "description": "Database name",
+      "example": "mydb"
+    },
+    "values": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Partition key values",
+      "example": [
+        "2024-01",
+        "US"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "description": "Partition HDFS location",
+      "example": "hdfs://namenode/user/hive/warehouse/mydb.db/sales/dt=2024-01/country=US"
+    },
+    "numRows": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Approximate row count",
+      "example": 50000
+    }
+  }
+}

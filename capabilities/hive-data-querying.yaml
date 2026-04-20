@@ -1,0 +1,100 @@
+name: Apache Hive Data Querying
+description: Workflow capability for querying and managing data warehouse tables using Apache Hive WebHCat
+persona: Data Analyst
+workflow:
+  - step: list-databases
+    name: List Databases
+    description: Discover available databases in the Hive metastore
+    capability: hive-webhcat
+    operation: listDatabases
+    server:
+      rest: http://localhost:50111/templeton/v1
+      mcp: http://localhost:9090
+
+  - step: list-tables
+    name: List Tables
+    description: List tables in a target database
+    capability: hive-webhcat
+    operation: listTables
+    server:
+      rest: http://localhost:50111/templeton/v1
+      mcp: http://localhost:9090
+
+  - step: get-table
+    name: Get Table Schema
+    description: Retrieve column definitions and metadata for a table
+    capability: hive-webhcat
+    operation: getTable
+    server:
+      rest: http://localhost:50111/templeton/v1
+      mcp: http://localhost:9090
+
+  - step: submit-query
+    name: Submit HiveQL Query
+    description: Execute a HiveQL query as an asynchronous job
+    capability: hive-webhcat
+    operation: submitHiveJob
+    server:
+      rest: http://localhost:50111/templeton/v1
+      mcp: http://localhost:9090
+
+tools:
+  - name: listDatabases
+    description: List all databases in the Hive metastore
+    server:
+      rest:
+        baseUrl: http://localhost:50111/templeton/v1
+        path: /ddl/database
+        method: GET
+      mcp:
+        baseUrl: http://localhost:9090
+        path: /tools/listDatabases
+        method: POST
+
+  - name: listTables
+    description: List tables in a Hive database
+    server:
+      rest:
+        baseUrl: http://localhost:50111/templeton/v1
+        path: /ddl/database/{dbName}/table
+        method: GET
+      mcp:
+        baseUrl: http://localhost:9090
+        path: /tools/listTables
+        method: POST
+
+  - name: getTable
+    description: Get schema and metadata for a Hive table
+    server:
+      rest:
+        baseUrl: http://localhost:50111/templeton/v1
+        path: /ddl/database/{dbName}/table/{tableName}
+        method: GET
+      mcp:
+        baseUrl: http://localhost:9090
+        path: /tools/getTable
+        method: POST
+
+  - name: submitHiveJob
+    description: Submit a HiveQL query as an asynchronous job
+    server:
+      rest:
+        baseUrl: http://localhost:50111/templeton/v1
+        path: /hive
+        method: POST
+      mcp:
+        baseUrl: http://localhost:9090
+        path: /tools/submitHiveJob
+        method: POST
+
+  - name: getJobStatus
+    description: Get the status and result of a submitted Hive job
+    server:
+      rest:
+        baseUrl: http://localhost:50111/templeton/v1
+        path: /jobs/{jobId}
+        method: GET
+      mcp:
+        baseUrl: http://localhost:9090
+        path: /tools/getJobStatus
+        method: POST

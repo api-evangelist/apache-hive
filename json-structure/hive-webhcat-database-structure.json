@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-hive/json-structure/hive-webhcat-database-structure.json",
+  "title": "Database",
+  "type": "object",
+  "properties": {
+    "name": "string",
+    "comment": "string",
+    "location": "string",
+    "ownerName": "string",
+    "ownerType": "string"
+  }
+}

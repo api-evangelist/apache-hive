@@ -1,0 +1,362 @@
+openapi: 3.0.3
+info:
+  title: Apache Hive WebHCat REST API
+  version: 1.0.0
+  description: WebHCat REST API for Apache Hive providing DDL operations, HiveQL job
+    submission, and Hive Metastore metadata access over HTTP.
+  contact:
+    email: user@hive.apache.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:50111/templeton/v1
+  description: WebHCat (Templeton) REST API
+tags:
+- name: DDL
+  description: HiveQL DDL operations
+- name: Databases
+  description: Database metadata operations
+- name: Tables
+  description: Table metadata operations
+- name: Jobs
+  description: Hive job submission and monitoring
+paths:
+  /ddl/database:
+    get:
+      operationId: listDatabases
+      summary: Apache Hive List Databases
+      description: List all databases in the Hive metastore.
+      tags:
+      - Databases
+      responses:
+        '200':
+          description: Databases listed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  databases:
+                    type: array
+                    items:
+                      type: string
+  /ddl/database/{dbName}:
+    get:
+      operationId: getDatabase
+      summary: Apache Hive Get Database
+      description: Get metadata for a specific Hive database.
+      tags:
+      - Databases
+      parameters:
+      - name: dbName
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Database name
+      responses:
+        '200':
+          description: Database retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Database'
+        '404':
+          description: Database not found
+  /ddl/database/{dbName}/table:
+    get:
+      operationId: listTables
+      summary: Apache Hive List Tables
+      description: List all tables in a Hive database.
+      tags:
+      - Tables
+      parameters:
+      - name: dbName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Tables listed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tables:
+                    type: array
+                    items:
+                      type: string
+  /ddl/database/{dbName}/table/{tableName}:
+    get:
+      operationId: getTable
+      summary: Apache Hive Get Table
+      description: Get schema and metadata for a specific Hive table.
+      tags:
+      - Tables
+      parameters:
+      - name: dbName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Table name
+      responses:
+        '200':
+          description: Table retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Table'
+        '404':
+          description: Table not found
+  /ddl/database/{dbName}/table/{tableName}/partition:
+    get:
+      operationId: listPartitions
+      summary: Apache Hive List Partitions
+      description: List all partitions for a Hive table.
+      tags:
+      - Tables
+      parameters:
+      - name: dbName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Partitions listed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  partitions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Partition'
+  /hive:
+    post:
+      operationId: submitHiveJob
+      summary: Apache Hive Submit Hive Job
+      description: Submit a HiveQL query as an asynchronous Hadoop job via WebHCat.
+      tags:
+      - Jobs
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                execute:
+                  type: string
+                  description: HiveQL statement to execute
+                file:
+                  type: string
+                  description: HDFS path to HiveQL script
+                statusdir:
+                  type: string
+                  description: HDFS directory for output and status
+                db:
+                  type: string
+                  description: Database context
+      responses:
+        '200':
+          description: Job submitted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+  /jobs/{jobId}:
+    get:
+      operationId: getJobStatus
+      summary: Apache Hive Get Job Status
+      description: Get the status of a submitted Hive job.
+      tags:
+      - Jobs
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Hadoop job ID
+      responses:
+        '200':
+          description: Job status retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '404':
+          description: Job not found
+components:
+  schemas:
+    Database:
+      type: object
+      description: Hive database (schema) in the metastore
+      properties:
+        name:
+          type: string
+          description: Database name
+          example: mydb
+        comment:
+          type: string
+          description: Database description
+          example: My analytics database
+        location:
+          type: string
+          description: HDFS location URI
+          example: hdfs://namenode/user/hive/warehouse/mydb.db
+        ownerName:
+          type: string
+          description: Owner of the database
+          example: hive
+        ownerType:
+          type: string
+          description: Owner type (USER or ROLE)
+          example: USER
+    Table:
+      type: object
+      description: Hive table metadata
+      properties:
+        tableName:
+          type: string
+          description: Table name
+          example: sales
+        dbName:
+          type: string
+          description: Database name
+          example: mydb
+        tableType:
+          type: string
+          description: Table type (MANAGED_TABLE, EXTERNAL_TABLE, VIRTUAL_VIEW)
+          example: MANAGED_TABLE
+        comment:
+          type: string
+          description: Table description
+          example: Sales transaction data
+        location:
+          type: string
+          description: HDFS data location
+          example: hdfs://namenode/user/hive/warehouse/mydb.db/sales
+        inputFormat:
+          type: string
+          description: Input format class
+          example: org.apache.hadoop.hive.ql.io.orc.OrcInputFormat
+        outputFormat:
+          type: string
+          description: Output format class
+          example: org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat
+        numRows:
+          type: integer
+          format: int64
+          description: Approximate number of rows
+          example: 1000000
+    Column:
+      type: object
+      description: Hive table column definition
+      properties:
+        name:
+          type: string
+          description: Column name
+          example: order_id
+        type:
+          type: string
+          description: Column data type
+          example: BIGINT
+        comment:
+          type: string
+          description: Column description
+          example: Unique order identifier
+    Partition:
+      type: object
+      description: Hive table partition
+      properties:
+        tableName:
+          type: string
+          description: Table name
+          example: sales
+        dbName:
+          type: string
+          description: Database name
+          example: mydb
+        values:
+          type: array
+          items:
+            type: string
+          description: Partition key values
+          example:
+          - 2024-01
+          - US
+        location:
+          type: string
+          description: Partition HDFS location
+          example: hdfs://namenode/user/hive/warehouse/mydb.db/sales/dt=2024-01/country=US
+        numRows:
+          type: integer
+          format: int64
+          description: Approximate row count
+          example: 50000
+    QueryResult:
+      type: object
+      description: Result of a WebHCat DDL or DML operation
+      properties:
+        status:
+          type: integer
+          description: HTTP status code
+          example: 200
+        schema:
+          type: string
+          description: Result schema as JSON string
+          example: ''
+        rows:
+          type: array
+          items:
+            type: object
+          description: Result rows
+        database:
+          type: string
+          description: Active database
+          example: mydb
+    Job:
+      type: object
+      description: WebHCat Hive job submission
+      properties:
+        id:
+          type: string
+          description: Job ID
+          example: job_1718153645993_0001
+        status:
+          type: string
+          description: Job status
+          example: RUNNING
+        percentComplete:
+          type: string
+          description: Job completion percentage
+          example: 50% complete
+        query:
+          type: string
+          description: HiveQL query string
+          example: SELECT COUNT(*) FROM sales
+        database:
+          type: string
+          description: Target database
+          example: mydb
+        statusdir:
+          type: string
+          description: HDFS directory for output and status
+          example: /tmp/hive-output

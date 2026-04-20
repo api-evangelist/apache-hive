@@ -1,0 +1,27 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "hive": "https://hive.apache.org/vocab#",
+    "name": "schema:name",
+    "comment": "schema:description",
+    "location": "schema:url",
+    "ownerName": "schema:creator",
+    "ownerType": "hive:ownerType",
+    "tableName": "hive:tableName",
+    "dbName": "hive:dbName",
+    "tableType": "hive:tableType",
+    "inputFormat": "hive:inputFormat",
+    "outputFormat": "hive:outputFormat",
+    "numRows": "hive:numRows",
+    "type": "schema:DataType",
+    "values": "hive:values",
+    "status": "schema:status",
+    "schema": "hive:schema",
+    "rows": "hive:rows",
+    "database": "hive:database",
+    "id": "schema:identifier",
+    "percentComplete": "hive:percentComplete",
+    "query": "hive:query",
+    "statusdir": "hive:statusdir"
+  }
+}

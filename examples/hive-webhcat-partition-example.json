@@ -1,0 +1,10 @@
+{
+  "tableName": "sales",
+  "dbName": "mydb",
+  "values": [
+    "2024-01",
+    "US"
+  ],
+  "location": "hdfs://namenode/user/hive/warehouse/mydb.db/sales/dt=2024-01/country=US",
+  "numRows": 50000
+}

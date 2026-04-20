@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/apache-hive/json-schema/hive-webhcat-queryresult-schema.json",
+  "title": "QueryResult",
+  "type": "object",
+  "description": "Result of a WebHCat DDL or DML operation",
+  "properties": {
+    "status": {
+      "type": "integer",
+      "description": "HTTP status code",
+      "example": 200
+    },
+    "schema": {
+      "type": "string",
+      "description": "Result schema as JSON string",
+      "example": ""
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Result rows"
+    },
+    "database": {
+      "type": "string",
+      "description": "Active database",
+      "example": "mydb"
+    }
+  }
+}

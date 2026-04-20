@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-hive/json-structure/hive-webhcat-table-structure.json",
+  "title": "Table",
+  "type": "object",
+  "properties": {
+    "tableName": "string",
+    "dbName": "string",
+    "tableType": "string",
+    "comment": "string",
+    "location": "string",
+    "inputFormat": "string",
+    "outputFormat": "string",
+    "numRows": "int64"
+  }
+}

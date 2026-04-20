@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/apache-hive/json-schema/hive-webhcat-database-schema.json",
+  "title": "Database",
+  "type": "object",
+  "description": "Hive database (schema) in the metastore",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Database name",
+      "example": "mydb"
+    },
+    "comment": {
+      "type": "string",
+      "description": "Database description",
+      "example": "My analytics database"
+    },
+    "location": {
+      "type": "string",
+      "description": "HDFS location URI",
+      "example": "hdfs://namenode/user/hive/warehouse/mydb.db"
+    },
+    "ownerName": {
+      "type": "string",
+      "description": "Owner of the database",
+      "example": "hive"
+    },
+    "ownerType": {
+      "type": "string",
+      "description": "Owner type (USER or ROLE)",
+      "example": "USER"
+    }
+  }
+}

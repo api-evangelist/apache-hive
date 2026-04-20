@@ -1,0 +1,47 @@
+name: Apache Hive Vocabulary
+description: Unified taxonomy for Apache Hive WebHCat API resources, actions, workflows, and personas
+version: "1.0.0"
+
+resources:
+  - name: Database
+    description: Hive database (schema) in the metastore
+    openapi: "#/components/schemas/Database"
+    capability: hive-webhcat
+  - name: Table
+    description: Hive managed or external table with column schema
+    openapi: "#/components/schemas/Table"
+    capability: hive-webhcat
+  - name: Partition
+    description: Partition of a Hive table by key values
+    openapi: "#/components/schemas/Partition"
+    capability: hive-webhcat
+  - name: Job
+    description: Asynchronous HiveQL job submitted via WebHCat
+    openapi: "#/components/schemas/Job"
+    capability: hive-webhcat
+
+actions:
+  - name: List
+    description: List databases or tables in the metastore
+    operationId: listDatabases
+  - name: Get
+    description: Retrieve database or table metadata
+    operationId: getDatabase
+  - name: Submit
+    description: Submit a HiveQL query job
+    operationId: submitHiveJob
+  - name: Monitor
+    description: Check the status of a submitted job
+    operationId: getJobStatus
+  - name: Scan Partitions
+    description: List partitions for a table
+    operationId: listPartitions
+
+workflows:
+  - name: Apache Hive Data Querying
+    description: Query and manage data warehouse tables using Apache Hive WebHCat
+    capability: hive-data-querying.yaml
+
+personas:
+  - name: Data Analyst
+    description: Analyst who queries and explores large datasets in Hive using HiveQL

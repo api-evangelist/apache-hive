@@ -1,0 +1,64 @@
+name: Apache Hive WebHCat REST API
+description: Shared capability definitions for Apache Hive WebHCat REST API operations
+baseUrl: http://localhost:50111/templeton/v1
+transport: rest
+version: "1.0.0"
+operations:
+  - operationId: listDatabases
+    name: Apache Hive List Databases
+    description: List all databases in the Hive metastore
+    method: GET
+    path: /ddl/database
+    tags:
+      - Databases
+
+  - operationId: listTables
+    name: Apache Hive List Tables
+    description: List all tables in a Hive database
+    method: GET
+    path: /ddl/database/{dbName}/table
+    parameters:
+      - name: dbName
+        in: path
+        required: true
+        type: string
+    tags:
+      - Tables
+
+  - operationId: getTable
+    name: Apache Hive Get Table
+    description: Get schema and metadata for a specific Hive table
+    method: GET
+    path: /ddl/database/{dbName}/table/{tableName}
+    parameters:
+      - name: dbName
+        in: path
+        required: true
+        type: string
+      - name: tableName
+        in: path
+        required: true
+        type: string
+    tags:
+      - Tables
+
+  - operationId: submitHiveJob
+    name: Apache Hive Submit Hive Job
+    description: Submit a HiveQL query as an asynchronous Hadoop job
+    method: POST
+    path: /hive
+    tags:
+      - Jobs
+
+  - operationId: getJobStatus
+    name: Apache Hive Get Job Status
+    description: Get the status of a submitted Hive job
+    method: GET
+    path: /jobs/{jobId}
+    parameters:
+      - name: jobId
+        in: path
+        required: true
+        type: string
+    tags:
+      - Jobs

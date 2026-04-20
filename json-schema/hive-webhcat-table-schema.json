@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/apache-hive/json-schema/hive-webhcat-table-schema.json",
+  "title": "Table",
+  "type": "object",
+  "description": "Hive table metadata",
+  "properties": {
+    "tableName": {
+      "type": "string",
+      "description": "Table name",
+      "example": "sales"
+    },
+    "dbName": {
+      "type": "string",
+      "description": "Database name",
+      "example": "mydb"
+    },
+    "tableType": {
+      "type": "string",
+      "description": "Table type (MANAGED_TABLE, EXTERNAL_TABLE, VIRTUAL_VIEW)",
+      "example": "MANAGED_TABLE"
+    },
+    "comment": {
+      "type": "string",
+      "description": "Table description",
+      "example": "Sales transaction data"
+    },
+    "location": {
+      "type": "string",
+      "description": "HDFS data location",
+      "example": "hdfs://namenode/user/hive/warehouse/mydb.db/sales"
+    },
+    "inputFormat": {
+      "type": "string",
+      "description": "Input format class",
+      "example": "org.apache.hadoop.hive.ql.io.orc.OrcInputFormat"
+    },
+    "outputFormat": {
+      "type": "string",
+      "description": "Output format class",
+      "example": "org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat"
+    },
+    "numRows": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Approximate number of rows",
+      "example": 1000000
+    }
+  }
+}

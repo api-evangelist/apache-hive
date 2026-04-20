@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-hive/json-structure/hive-webhcat-job-structure.json",
+  "title": "Job",
+  "type": "object",
+  "properties": {
+    "id": "string",
+    "status": "string",
+    "percentComplete": "string",
+    "query": "string",
+    "database": "string",
+    "statusdir": "string"
+  }
+}

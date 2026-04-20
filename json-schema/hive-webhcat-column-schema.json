@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/apache-hive/json-schema/hive-webhcat-column-schema.json",
+  "title": "Column",
+  "type": "object",
+  "description": "Hive table column definition",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Column name",
+      "example": "order_id"
+    },
+    "type": {
+      "type": "string",
+      "description": "Column data type",
+      "example": "BIGINT"
+    },
+    "comment": {
+      "type": "string",
+      "description": "Column description",
+      "example": "Unique order identifier"
+    }
+  }
+}

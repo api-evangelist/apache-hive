@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-hive/json-structure/hive-webhcat-partition-structure.json",
+  "title": "Partition",
+  "type": "object",
+  "properties": {
+    "tableName": "string",
+    "dbName": "string",
+    "values": "array",
+    "location": "string",
+    "numRows": "int64"
+  }
+}

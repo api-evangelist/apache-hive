@@ -1,0 +1,8 @@
+{
+  "id": "job_1718153645993_0001",
+  "status": "RUNNING",
+  "percentComplete": "50% complete",
+  "query": "SELECT COUNT(*) FROM sales",
+  "database": "mydb",
+  "statusdir": "/tmp/hive-output"
+}

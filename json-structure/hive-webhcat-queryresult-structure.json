@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-hive/json-structure/hive-webhcat-queryresult-structure.json",
+  "title": "QueryResult",
+  "type": "object",
+  "properties": {
+    "status": "int32",
+    "schema": "string",
+    "rows": "array",
+    "database": "string"
+  }
+}

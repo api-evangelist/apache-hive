@@ -1,0 +1,10 @@
+{
+  "tableName": "sales",
+  "dbName": "mydb",
+  "tableType": "MANAGED_TABLE",
+  "comment": "Sales transaction data",
+  "location": "hdfs://namenode/user/hive/warehouse/mydb.db/sales",
+  "inputFormat": "org.apache.hadoop.hive.ql.io.orc.OrcInputFormat",
+  "outputFormat": "org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat",
+  "numRows": 1000000
+}
