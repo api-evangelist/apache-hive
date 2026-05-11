@@ -115,6 +115,13 @@ common:
         description: Apache Tez DAG execution engine replaces MapReduce for faster Hive query processing.
       - name: Presto / Trino
         description: Presto and Trino use the Hive Metastore for table metadata in federated SQL queries.
+  - type: Integrations
+    url: https://cwiki.apache.org/confluence/display/connectors
+integrations:
+  - name: Apache Connectors Framework
+  - name: Please wait
+  - name: 'User icon: Anonymous'
+  - name: 'User icon: kwright@metacarta.com'
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
