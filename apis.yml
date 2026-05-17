@@ -39,7 +39,7 @@ apis:
         url: openapi/apache-hive-webhcat-openapi.yml
       - type: JSONSchema
         url: json-schema/hive-webhcat-table-schema.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/apache-hive-webhcat-context.jsonld
 
   - aid: apache-hive:apache-hive-jdbc
