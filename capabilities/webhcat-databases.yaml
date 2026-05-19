@@ -1,0 +1,109 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache Hive WebHCat REST API — Databases
+  description: 'Apache Hive WebHCat REST API — Databases. 2 operations. Lead operation: Apache Hive List Databases. Self-contained
+    Naftiko capability covering one Apache Hive business surface.'
+  tags:
+  - Apache Hive
+  - Databases
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_HIVE_API_KEY: APACHE_HIVE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: webhcat-databases
+    baseUri: http://localhost:50111/templeton/v1
+    description: Apache Hive WebHCat REST API — Databases business capability. Self-contained, no shared references.
+    resources:
+    - name: ddl-database
+      path: /ddl/database
+      operations:
+      - name: listdatabases
+        method: GET
+        description: Apache Hive List Databases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ddl-database-dbName
+      path: /ddl/database/{dbName}
+      operations:
+      - name: getdatabase
+        method: GET
+        description: Apache Hive Get Database
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dbName
+          in: path
+          type: string
+          description: Database name
+          required: true
+  exposes:
+  - type: rest
+    namespace: webhcat-databases-rest
+    port: 8080
+    description: REST adapter for Apache Hive WebHCat REST API — Databases. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/ddl/database
+      name: ddl-database
+      description: REST surface for ddl-database.
+      operations:
+      - method: GET
+        name: listdatabases
+        description: Apache Hive List Databases
+        call: webhcat-databases.listdatabases
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ddl/database/{dbname}
+      name: ddl-database-dbname
+      description: REST surface for ddl-database-dbName.
+      operations:
+      - method: GET
+        name: getdatabase
+        description: Apache Hive Get Database
+        call: webhcat-databases.getdatabase
+        with:
+          dbName: rest.dbName
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: webhcat-databases-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache Hive WebHCat REST API — Databases. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: apache-hive-list-databases
+      description: Apache Hive List Databases
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: webhcat-databases.listdatabases
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-hive-get-database
+      description: Apache Hive Get Database
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: webhcat-databases.getdatabase
+      with:
+        dbName: tools.dbName
+      outputParameters:
+      - type: object
+        mapping: $.
