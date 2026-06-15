@@ -1,0 +1,180 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Hive WebHCat REST API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Databases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Hive List Databases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:50111/templeton/v1/ddl/database"
+          },
+          "docs": "List all databases in the Hive metastore."
+        },
+        {
+          "info": {
+            "name": "Apache Hive Get Database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:50111/templeton/v1/ddl/database/:dbName",
+            "params": [
+              {
+                "name": "dbName",
+                "value": "",
+                "type": "path",
+                "description": "Database name"
+              }
+            ]
+          },
+          "docs": "Get metadata for a specific Hive database."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Hive List Tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:50111/templeton/v1/ddl/database/:dbName/table",
+            "params": [
+              {
+                "name": "dbName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List all tables in a Hive database."
+        },
+        {
+          "info": {
+            "name": "Apache Hive Get Table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:50111/templeton/v1/ddl/database/:dbName/table/:tableName",
+            "params": [
+              {
+                "name": "dbName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "Table name"
+              }
+            ]
+          },
+          "docs": "Get schema and metadata for a specific Hive table."
+        },
+        {
+          "info": {
+            "name": "Apache Hive List Partitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:50111/templeton/v1/ddl/database/:dbName/table/:tableName/partition",
+            "params": [
+              {
+                "name": "dbName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List all partitions for a Hive table."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Hive Submit Hive Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:50111/templeton/v1/hive",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "execute",
+                  "value": ""
+                },
+                {
+                  "name": "file",
+                  "value": ""
+                },
+                {
+                  "name": "statusdir",
+                  "value": ""
+                },
+                {
+                  "name": "db",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Submit a HiveQL query as an asynchronous Hadoop job via WebHCat."
+        },
+        {
+          "info": {
+            "name": "Apache Hive Get Job Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:50111/templeton/v1/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "Hadoop job ID"
+              }
+            ]
+          },
+          "docs": "Get the status of a submitted Hive job."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,892 @@
+{
+  "item": [
+    {
+      "id": "d8c4acb5-c5bf-4eb6-97f7-83ebd4ce921c",
+      "name": "DDL",
+      "description": {
+        "content": "HiveQL DDL operations",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "b12462a7-6a43-41f8-bd7e-08ea387be5f2",
+      "name": "Databases",
+      "description": {
+        "content": "Database metadata operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cf636448-55ec-4db9-a4cd-e96fa568ef64",
+          "name": "Apache Hive List Databases",
+          "request": {
+            "name": "Apache Hive List Databases",
+            "description": {
+              "content": "List all databases in the Hive metastore.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ddl",
+                "database"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a36c151-f1cd-4197-a2dd-62c73dfceab0",
+              "name": "Databases listed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ddl",
+                    "database"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"databases\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2fdc0619-351d-4250-92e3-0848af54b140",
+          "name": "Apache Hive Get Database",
+          "request": {
+            "name": "Apache Hive Get Database",
+            "description": {
+              "content": "Get metadata for a specific Hive database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ddl",
+                "database",
+                ":dbName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dbName",
+                  "description": "(Required) Database name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b621f6f2-93d4-4853-a277-95a27210ac47",
+              "name": "Database retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ddl",
+                    "database",
+                    ":dbName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dbName",
+                      "description": "(Required) Database name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"mydb\",\n  \"comment\": \"My analytics database\",\n  \"location\": \"hdfs://namenode/user/hive/warehouse/mydb.db\",\n  \"ownerName\": \"hive\",\n  \"ownerType\": \"USER\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22b88608-8527-48c6-b1e8-1ac633dec501",
+              "name": "Database not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ddl",
+                    "database",
+                    ":dbName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dbName",
+                      "description": "(Required) Database name"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cd8a3c69-6e6d-48be-bd5c-c5e005b99303",
+      "name": "Tables",
+      "description": {
+        "content": "Table metadata operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "062c755d-84c1-4a6b-8dee-0c1a1b90755d",
+          "name": "Apache Hive List Tables",
+          "request": {
+            "name": "Apache Hive List Tables",
+            "description": {
+              "content": "List all tables in a Hive database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ddl",
+                "database",
+                ":dbName",
+                "table"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dbName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "32abb71b-8b21-4651-8fc5-2dc799ce9c10",
+              "name": "Tables listed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ddl",
+                    "database",
+                    ":dbName",
+                    "table"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dbName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tables\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32b92ce1-0831-4394-b2cf-a60760850896",
+          "name": "Apache Hive Get Table",
+          "request": {
+            "name": "Apache Hive Get Table",
+            "description": {
+              "content": "Get schema and metadata for a specific Hive table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ddl",
+                "database",
+                ":dbName",
+                "table",
+                ":tableName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dbName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) Table name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eac67464-345f-43e2-8cd6-c9654ddeb0de",
+              "name": "Table retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ddl",
+                    "database",
+                    ":dbName",
+                    "table",
+                    ":tableName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dbName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tableName\": \"sales\",\n  \"dbName\": \"mydb\",\n  \"tableType\": \"MANAGED_TABLE\",\n  \"comment\": \"Sales transaction data\",\n  \"location\": \"hdfs://namenode/user/hive/warehouse/mydb.db/sales\",\n  \"inputFormat\": \"org.apache.hadoop.hive.ql.io.orc.OrcInputFormat\",\n  \"outputFormat\": \"org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat\",\n  \"numRows\": 1000000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2629cf46-601b-4e90-b0c2-a1e57784e7d1",
+              "name": "Table not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ddl",
+                    "database",
+                    ":dbName",
+                    "table",
+                    ":tableName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dbName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) Table name"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9467045a-60f8-43ad-9685-a3a13a6a8da7",
+          "name": "Apache Hive List Partitions",
+          "request": {
+            "name": "Apache Hive List Partitions",
+            "description": {
+              "content": "List all partitions for a Hive table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ddl",
+                "database",
+                ":dbName",
+                "table",
+                ":tableName",
+                "partition"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dbName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "122297f9-c3be-4559-b1a7-3df0575a00b6",
+              "name": "Partitions listed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ddl",
+                    "database",
+                    ":dbName",
+                    "table",
+                    ":tableName",
+                    "partition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dbName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"partitions\": [\n    {\n      \"tableName\": \"sales\",\n      \"dbName\": \"mydb\",\n      \"values\": [\n        \"2024-01\",\n        \"US\"\n      ],\n      \"location\": \"hdfs://namenode/user/hive/warehouse/mydb.db/sales/dt=2024-01/country=US\",\n      \"numRows\": 50000\n    },\n    {\n      \"tableName\": \"sales\",\n      \"dbName\": \"mydb\",\n      \"values\": [\n        \"2024-01\",\n        \"US\"\n      ],\n      \"location\": \"hdfs://namenode/user/hive/warehouse/mydb.db/sales/dt=2024-01/country=US\",\n      \"numRows\": 50000\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "98aab741-e165-4f97-9ed5-c25808d0190f",
+      "name": "Jobs",
+      "description": {
+        "content": "Hive job submission and monitoring",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2db5e0f1-25a4-46b3-84db-f2599e879eec",
+          "name": "Apache Hive Submit Hive Job",
+          "request": {
+            "name": "Apache Hive Submit Hive Job",
+            "description": {
+              "content": "Submit a HiveQL query as an asynchronous Hadoop job via WebHCat.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "execute",
+                  "value": "<string>",
+                  "description": "HiveQL statement to execute"
+                },
+                {
+                  "disabled": false,
+                  "key": "file",
+                  "value": "<string>",
+                  "description": "HDFS path to HiveQL script"
+                },
+                {
+                  "disabled": false,
+                  "key": "statusdir",
+                  "value": "<string>",
+                  "description": "HDFS directory for output and status"
+                },
+                {
+                  "disabled": false,
+                  "key": "db",
+                  "value": "<string>",
+                  "description": "Database context"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1485a5b0-8b98-42d5-a1bf-9d55364756d6",
+              "name": "Job submitted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "HiveQL statement to execute",
+                        "type": "text/plain"
+                      },
+                      "key": "execute",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "HDFS path to HiveQL script",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "HDFS directory for output and status",
+                        "type": "text/plain"
+                      },
+                      "key": "statusdir",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Database context",
+                        "type": "text/plain"
+                      },
+                      "key": "db",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"job_1718153645993_0001\",\n  \"status\": \"RUNNING\",\n  \"percentComplete\": \"50% complete\",\n  \"query\": \"SELECT COUNT(*) FROM sales\",\n  \"database\": \"mydb\",\n  \"statusdir\": \"/tmp/hive-output\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fec5bf64-7f0e-45dd-ad51-88d604ebdfec",
+          "name": "Apache Hive Get Job Status",
+          "request": {
+            "name": "Apache Hive Get Job Status",
+            "description": {
+              "content": "Get the status of a submitted Hive job.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                ":jobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) Hadoop job ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad427fbf-2797-415f-bc65-d33fbda302c0",
+              "name": "Job status retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) Hadoop job ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"job_1718153645993_0001\",\n  \"status\": \"RUNNING\",\n  \"percentComplete\": \"50% complete\",\n  \"query\": \"SELECT COUNT(*) FROM sales\",\n  \"database\": \"mydb\",\n  \"statusdir\": \"/tmp/hive-output\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de7bdd87-a203-4d62-a958-94980e7707cc",
+              "name": "Job not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) Hadoop job ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:50111/templeton/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2b716a57-5c73-4734-9deb-dddc32b490c8",
+    "name": "Apache Hive WebHCat REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "WebHCat REST API for Apache Hive providing DDL operations, HiveQL job submission, and Hive Metastore metadata access over HTTP.\n\nContact Support:\n Email: user@hive.apache.org",
+      "type": "text/plain"
+    }
+  }
+}
