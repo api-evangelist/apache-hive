@@ -56,7 +56,7 @@ apis:
     properties:
       - type: Documentation
         url: https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-JDBC
-      - type: SDK
+      - type: SDKs
         url: https://search.maven.org/artifact/org.apache.hive/hive-jdbc
         title: Java JDBC Driver (Maven Central)
 common:
