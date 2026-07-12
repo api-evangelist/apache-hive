@@ -60,6 +60,10 @@ apis:
         url: https://search.maven.org/artifact/org.apache.hive/hive-jdbc
         title: Java JDBC Driver (Maven Central)
 common:
+  - type: VulnerabilityDisclosure
+    url: security/apache-hive-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/apache-hive-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/apache-hive
   - type: Documentation
