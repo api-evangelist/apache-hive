@@ -60,6 +60,8 @@ apis:
         url: https://search.maven.org/artifact/org.apache.hive/hive-jdbc
         title: Java JDBC Driver (Maven Central)
 common:
+  - type: AgenticAccess
+    url: agentic-access/apache-hive-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/apache-hive-vulnerability-disclosure.yml
   - type: DomainSecurity
