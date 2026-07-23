@@ -1,0 +1,103 @@
+openapi: 3.0.3
+info:
+  title: Apache Hive WebHCat REST Databases Jobs API
+  version: 1.0.0
+  description: WebHCat REST API for Apache Hive providing DDL operations, HiveQL job submission, and Hive Metastore metadata access over HTTP.
+  contact:
+    email: user@hive.apache.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:50111/templeton/v1
+  description: WebHCat (Templeton) REST API
+tags:
+- name: Jobs
+  description: Hive job submission and monitoring
+paths:
+  /hive:
+    post:
+      operationId: submitHiveJob
+      summary: Apache Hive Submit Hive Job
+      description: Submit a HiveQL query as an asynchronous Hadoop job via WebHCat.
+      tags:
+      - Jobs
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                execute:
+                  type: string
+                  description: HiveQL statement to execute
+                file:
+                  type: string
+                  description: HDFS path to HiveQL script
+                statusdir:
+                  type: string
+                  description: HDFS directory for output and status
+                db:
+                  type: string
+                  description: Database context
+      responses:
+        '200':
+          description: Job submitted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+  /jobs/{jobId}:
+    get:
+      operationId: getJobStatus
+      summary: Apache Hive Get Job Status
+      description: Get the status of a submitted Hive job.
+      tags:
+      - Jobs
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Hadoop job ID
+      responses:
+        '200':
+          description: Job status retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '404':
+          description: Job not found
+components:
+  schemas:
+    Job:
+      type: object
+      description: WebHCat Hive job submission
+      properties:
+        id:
+          type: string
+          description: Job ID
+          example: job_1718153645993_0001
+        status:
+          type: string
+          description: Job status
+          example: RUNNING
+        percentComplete:
+          type: string
+          description: Job completion percentage
+          example: 50% complete
+        query:
+          type: string
+          description: HiveQL query string
+          example: SELECT COUNT(*) FROM sales
+        database:
+          type: string
+          description: Target database
+          example: mydb
+        statusdir:
+          type: string
+          description: HDFS directory for output and status
+          example: /tmp/hive-output
