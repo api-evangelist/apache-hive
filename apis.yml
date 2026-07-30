@@ -5,9 +5,21 @@ description: >-
   distributed storage using SQL. It provides a SQL-like interface called HiveQL for querying data stored in Hadoop,
   along with a WebHCat REST API for job submission and metastore access.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apache-hive.png
 tags:
   - Apache
   - Big Data
@@ -21,44 +33,72 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/apache-hive/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: apache-hive:apache-hive-webhcat-api
-    name: Apache Hive WebHCat REST API
-    description: >-
-      WebHCat (Templeton) REST API for Apache Hive providing DDL operations, HiveQL job submission, and Hive Metastore
-      metadata access over HTTP.
-    humanURL: https://cwiki.apache.org/confluence/display/Hive/WebHCat
-    baseURL: http://localhost:50111/templeton/v1
-    tags:
-      - Databases
-      - Jobs
-      - Metastore
-      - REST
-      - Tables
-    properties:
-      - type: Documentation
-        url: https://cwiki.apache.org/confluence/display/Hive/WebHCat
-      - type: OpenAPI
-        url: openapi/apache-hive-webhcat-openapi.yml
-      - type: JSONSchema
-        url: json-schema/hive-webhcat-table-schema.json
-      - type: JSONLD
-        url: json-ld/apache-hive-webhcat-context.jsonld
-  - aid: apache-hive:apache-hive-jdbc
-    name: Apache Hive JDBC API
-    description: >-
-      JDBC interface to HiveServer2 for standard SQL client connectivity, supporting parameterized queries, result sets,
-      and connection pooling from Java and ODBC-bridge applications.
-    humanURL: https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-JDBC
-    tags:
-      - JDBC
-      - SQL
-      - SDK
-    properties:
-      - type: Documentation
-        url: https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-JDBC
-      - type: SDKs
-        url: https://search.maven.org/artifact/org.apache.hive/hive-jdbc
-        title: Java JDBC Driver (Maven Central)
+- aid: apache-hive:apache-hive-jdbc
+  name: Apache Hive JDBC API
+  description: >-
+    JDBC interface to HiveServer2 for standard SQL client connectivity, supporting parameterized queries,
+    result sets, and connection pooling from Java and ODBC-bridge applications.
+  humanURL: >-
+    https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-JDBC
+  tags:
+  - JDBC
+  - SQL
+  - SDK
+  properties:
+  - type: Documentation
+    url: >-
+      https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-JDBC
+  - type: SDKs
+    url: https://search.maven.org/artifact/org.apache.hive/hive-jdbc
+    title: Java JDBC Driver (Maven Central)
+- aid: apache-hive:apache-hive-databases-api
+  name: Apache Hive Databases API
+  description: Database metadata operations
+  humanURL: https://cwiki.apache.org/confluence/display/Hive/WebHCat
+  baseURL: http://localhost:50111/templeton/v1
+  tags:
+  - Databases
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-hive-databases-api-openapi.yml
+  - type: Documentation
+    url: https://cwiki.apache.org/confluence/display/Hive/WebHCat
+  - type: JSONSchema
+    url: json-schema/hive-webhcat-table-schema.json
+  - type: JSONLD
+    url: json-ld/apache-hive-webhcat-context.jsonld
+- aid: apache-hive:apache-hive-jobs-api
+  name: Apache Hive Jobs API
+  description: Hive job submission and monitoring
+  humanURL: https://cwiki.apache.org/confluence/display/Hive/WebHCat
+  baseURL: http://localhost:50111/templeton/v1
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-hive-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://cwiki.apache.org/confluence/display/Hive/WebHCat
+  - type: JSONSchema
+    url: json-schema/hive-webhcat-table-schema.json
+  - type: JSONLD
+    url: json-ld/apache-hive-webhcat-context.jsonld
+- aid: apache-hive:apache-hive-tables-api
+  name: Apache Hive Tables API
+  description: Table metadata operations
+  humanURL: https://cwiki.apache.org/confluence/display/Hive/WebHCat
+  baseURL: http://localhost:50111/templeton/v1
+  tags:
+  - Tables
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-hive-tables-api-openapi.yml
+  - type: Documentation
+    url: https://cwiki.apache.org/confluence/display/Hive/WebHCat
+  - type: JSONSchema
+    url: json-schema/hive-webhcat-table-schema.json
+  - type: JSONLD
+    url: json-ld/apache-hive-webhcat-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/apache-hive-agentic-access.yml
