@@ -1,0 +1,18 @@
+{
+  "provider": "apache-hive",
+  "sources": [
+    "apache-hive-databases-api-openapi.yml",
+    "apache-hive-jobs-api-openapi.yml",
+    "apache-hive-tables-api-openapi.yml"
+  ],
+  "outputs": [
+    "apache-hive-databases-api-openapi.yml",
+    "apache-hive-jobs-api-openapi.yml",
+    "apache-hive-tables-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
