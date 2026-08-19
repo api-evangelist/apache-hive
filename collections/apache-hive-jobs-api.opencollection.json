@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Hive WebHCat REST Databases Jobs API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Hive Submit Hive Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:50111/templeton/v1/hive",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "execute",
+                  "value": ""
+                },
+                {
+                  "name": "file",
+                  "value": ""
+                },
+                {
+                  "name": "statusdir",
+                  "value": ""
+                },
+                {
+                  "name": "db",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Submit a HiveQL query as an asynchronous Hadoop job via WebHCat."
+        },
+        {
+          "info": {
+            "name": "Apache Hive Get Job Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:50111/templeton/v1/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "Hadoop job ID"
+              }
+            ]
+          },
+          "docs": "Get the status of a submitted Hive job."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

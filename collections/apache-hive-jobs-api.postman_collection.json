@@ -1,0 +1,301 @@
+{
+  "item": [
+    {
+      "id": "0b2775b8-0ec0-4e4c-bf08-80a5f4a3a558",
+      "name": "Jobs",
+      "description": {
+        "content": "Hive job submission and monitoring",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f1c4f230-0aa8-458b-8877-f4f77cd25d3a",
+          "name": "Apache Hive Submit Hive Job",
+          "request": {
+            "name": "Apache Hive Submit Hive Job",
+            "description": {
+              "content": "Submit a HiveQL query as an asynchronous Hadoop job via WebHCat.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "execute",
+                  "value": "<string>",
+                  "description": "HiveQL statement to execute"
+                },
+                {
+                  "disabled": false,
+                  "key": "file",
+                  "value": "<string>",
+                  "description": "HDFS path to HiveQL script"
+                },
+                {
+                  "disabled": false,
+                  "key": "statusdir",
+                  "value": "<string>",
+                  "description": "HDFS directory for output and status"
+                },
+                {
+                  "disabled": false,
+                  "key": "db",
+                  "value": "<string>",
+                  "description": "Database context"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c51dd41d-a98a-404d-a893-e546651a01ec",
+              "name": "Job submitted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "HiveQL statement to execute",
+                        "type": "text/plain"
+                      },
+                      "key": "execute",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "HDFS path to HiveQL script",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "HDFS directory for output and status",
+                        "type": "text/plain"
+                      },
+                      "key": "statusdir",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Database context",
+                        "type": "text/plain"
+                      },
+                      "key": "db",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"job_1718153645993_0001\",\n  \"status\": \"RUNNING\",\n  \"percentComplete\": \"50% complete\",\n  \"query\": \"SELECT COUNT(*) FROM sales\",\n  \"database\": \"mydb\",\n  \"statusdir\": \"/tmp/hive-output\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19c64ecd-91f6-4e0b-a23d-2bfda77c7b91",
+          "name": "Apache Hive Get Job Status",
+          "request": {
+            "name": "Apache Hive Get Job Status",
+            "description": {
+              "content": "Get the status of a submitted Hive job.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                ":jobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) Hadoop job ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea8894a8-5f4b-4508-873b-62b07b6a9576",
+              "name": "Job status retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) Hadoop job ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"job_1718153645993_0001\",\n  \"status\": \"RUNNING\",\n  \"percentComplete\": \"50% complete\",\n  \"query\": \"SELECT COUNT(*) FROM sales\",\n  \"database\": \"mydb\",\n  \"statusdir\": \"/tmp/hive-output\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87f38858-da01-4ed0-bc19-a27f237843e0",
+              "name": "Job not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) Hadoop job ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:50111/templeton/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3b419c62-80c1-4807-b2ba-2cb7f24e7ce3",
+    "name": "Apache Hive WebHCat REST Databases Jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "WebHCat REST API for Apache Hive providing DDL operations, HiveQL job submission, and Hive Metastore metadata access over HTTP.\n\nContact Support:\n Email: user@hive.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

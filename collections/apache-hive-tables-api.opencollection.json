@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Hive WebHCat REST Databases Tables API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Hive List Tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:50111/templeton/v1/ddl/database/:dbName/table",
+            "params": [
+              {
+                "name": "dbName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List all tables in a Hive database."
+        },
+        {
+          "info": {
+            "name": "Apache Hive Get Table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:50111/templeton/v1/ddl/database/:dbName/table/:tableName",
+            "params": [
+              {
+                "name": "dbName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "Table name"
+              }
+            ]
+          },
+          "docs": "Get schema and metadata for a specific Hive table."
+        },
+        {
+          "info": {
+            "name": "Apache Hive List Partitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:50111/templeton/v1/ddl/database/:dbName/table/:tableName/partition",
+            "params": [
+              {
+                "name": "dbName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List all partitions for a Hive table."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

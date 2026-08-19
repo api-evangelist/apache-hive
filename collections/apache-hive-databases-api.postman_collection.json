@@ -1,0 +1,233 @@
+{
+  "item": [
+    {
+      "id": "841f1c64-ffdc-4f94-b179-aaae76af742e",
+      "name": "Databases",
+      "description": {
+        "content": "Database metadata operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "83759fef-f4aa-4455-95d2-14e647ccd0eb",
+          "name": "Apache Hive List Databases",
+          "request": {
+            "name": "Apache Hive List Databases",
+            "description": {
+              "content": "List all databases in the Hive metastore.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ddl",
+                "database"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fdc0f29b-4289-411e-8eb1-faba0904d93d",
+              "name": "Databases listed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ddl",
+                    "database"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"databases\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1130850-0ada-447a-9340-af651d3d9061",
+          "name": "Apache Hive Get Database",
+          "request": {
+            "name": "Apache Hive Get Database",
+            "description": {
+              "content": "Get metadata for a specific Hive database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ddl",
+                "database",
+                ":dbName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dbName",
+                  "description": "(Required) Database name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4abb1cb-5897-46bc-a5da-1a1a422b0872",
+              "name": "Database retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ddl",
+                    "database",
+                    ":dbName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dbName",
+                      "description": "(Required) Database name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"mydb\",\n  \"comment\": \"My analytics database\",\n  \"location\": \"hdfs://namenode/user/hive/warehouse/mydb.db\",\n  \"ownerName\": \"hive\",\n  \"ownerType\": \"USER\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64702b24-a30d-473f-b310-50e2791e4dcd",
+              "name": "Database not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ddl",
+                    "database",
+                    ":dbName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dbName",
+                      "description": "(Required) Database name"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:50111/templeton/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "469b50df-16ba-4ee2-99de-c3d9a8e87720",
+    "name": "Apache Hive WebHCat REST Databases API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "WebHCat REST API for Apache Hive providing DDL operations, HiveQL job submission, and Hive Metastore metadata access over HTTP.\n\nContact Support:\n Email: user@hive.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

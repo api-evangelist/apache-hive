@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Hive WebHCat REST Databases API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Databases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Hive List Databases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:50111/templeton/v1/ddl/database"
+          },
+          "docs": "List all databases in the Hive metastore."
+        },
+        {
+          "info": {
+            "name": "Apache Hive Get Database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:50111/templeton/v1/ddl/database/:dbName",
+            "params": [
+              {
+                "name": "dbName",
+                "value": "",
+                "type": "path",
+                "description": "Database name"
+              }
+            ]
+          },
+          "docs": "Get metadata for a specific Hive database."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
