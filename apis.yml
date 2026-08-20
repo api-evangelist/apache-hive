@@ -26,6 +26,14 @@ tags:
   - Data Warehouse
   - ETL
   - Hadoop
+  - Open-Source
+  - SQL
+tags_raw:
+  - Apache
+  - Big Data
+  - Data Warehouse
+  - ETL
+  - Hadoop
   - Open Source
   - SQL
 created: '2026-03-16'
@@ -73,6 +81,8 @@ apis:
   humanURL: https://cwiki.apache.org/confluence/display/Hive/WebHCat
   baseURL: http://localhost:50111/templeton/v1
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
