@@ -78,6 +78,8 @@ apis:
   humanURL: https://cwiki.apache.org/confluence/display/Hive/WebHCat
   baseURL: http://localhost:50111/templeton/v1
   tags:
+  - Database
+  tags_raw:
   - Databases
   properties:
   - type: OpenAPI
