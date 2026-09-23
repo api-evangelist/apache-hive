@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Apache Hive WebHCat REST Databases Jobs API
+  title: Apache Hive WebHCat REST Jobs API
   version: 1.0.0
   description: WebHCat REST API for Apache Hive providing DDL operations, HiveQL job submission, and Hive Metastore metadata access over HTTP.
   contact:
