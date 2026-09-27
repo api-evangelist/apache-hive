@@ -42,7 +42,7 @@ tags:
   - Data Warehouse
   - ETL
   - Hadoop
-  - Open-Source
+  - Open Source
   - SQL
 tags_raw:
   - Apache
@@ -52,6 +52,7 @@ tags_raw:
   - Hadoop
   - Open Source
   - SQL
+  - Open-Source
 created: '2026-03-16'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/apache-hive/refs/heads/main/apis.yml
