@@ -1,4 +1,4 @@
-# Apache Hive (apache-hive)
+# Apache Hive
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,89 +66,173 @@
 
 Apache Hive is a data warehouse software that facilitates reading, writing, and managing large datasets residing in distributed storage using SQL. It provides a SQL-like interface called HiveQL for querying data stored in Hadoop, along with a WebHCat REST API for job submission and metastore access.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/apache-hive/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/apache-hive/refs/heads/main/apis.yml)
+**Areas:** Apache · Big Data · Data Warehouse · ETL · Hadoop · Open Source · SQL
 
-## Scope
+## Apache Hive on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Apache Hive is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/apache-hive/](https://apis.io/providers/apache-hive/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Apache
-- Big Data
-- Data Warehouse
-- ETL
-- Hadoop
-- Open Source
-- SQL
+- [Apache Hive JDBC API](https://apis.io/apis/apache-hive/apache-hive-jdbc/) — JDBC interface to HiveServer2 for standard SQL client connectivity, supporting parameterized queries, result sets, and connection pooling from Java and…
+- [Apache Hive Databases API](https://apis.io/apis/apache-hive/apache-hive-databases-api/) — Database metadata operations
+- [Apache Hive Jobs API](https://apis.io/apis/apache-hive/apache-hive-jobs-api/) — Hive job submission and monitoring
+- [Apache Hive Tables API](https://apis.io/apis/apache-hive/apache-hive-tables-api/) — Table metadata operations
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Apache Hive WebHCat REST API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-WebHCat (Templeton) REST API for Apache Hive providing DDL operations, HiveQL job submission, and Hive Metastore metadata access over HTTP.
+- [Apache Hive Agentic Access](https://apis.io/agentic-access/apache-hive/apache-hive-agentic-access/)
 
-- **Human URL:** [https://cwiki.apache.org/confluence/display/Hive/WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)
-- **Base URL:** `http://localhost:50111/templeton/v1`
+#### JSON Schema (6)
 
-#### Tags
+The data models the API reads and writes.
 
-- Databases
-- Jobs
-- Metastore
-- REST
-- Tables
+- [Column](https://apis.io/schemas/apache-hive/hive-webhcat-column/)
+- [Database](https://apis.io/schemas/apache-hive/hive-webhcat-database/)
+- [Job](https://apis.io/schemas/apache-hive/hive-webhcat-job/)
+- [Partition](https://apis.io/schemas/apache-hive/hive-webhcat-partition/)
+- [QueryResult](https://apis.io/schemas/apache-hive/hive-webhcat-queryresult/)
+- [Table](https://apis.io/schemas/apache-hive/hive-webhcat-table/)
 
-#### Properties
+#### JSON Structure (6)
 
-- [Documentation](https://cwiki.apache.org/confluence/display/Hive/WebHCat)
-- [OpenAPI](openapi/apache-hive-webhcat-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/apache-hive-webhcat.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/apache-hive-webhcat.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/hive-webhcat-table-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/apache-hive-webhcat-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+Data models expressed in JSON Structure.
 
-### Apache Hive JDBC API
+- [Hive Webhcat Column Structure](https://apis.io/json-structure/apache-hive/hive-webhcat-column-structure/)
+- [Hive Webhcat Database Structure](https://apis.io/json-structure/apache-hive/hive-webhcat-database-structure/)
+- [Hive Webhcat Job Structure](https://apis.io/json-structure/apache-hive/hive-webhcat-job-structure/)
+- [Hive Webhcat Partition Structure](https://apis.io/json-structure/apache-hive/hive-webhcat-partition-structure/)
+- [Hive Webhcat Queryresult Structure](https://apis.io/json-structure/apache-hive/hive-webhcat-queryresult-structure/)
+- [Hive Webhcat Table Structure](https://apis.io/json-structure/apache-hive/hive-webhcat-table-structure/)
 
-JDBC interface to HiveServer2 for standard SQL client connectivity, supporting parameterized queries, result sets, and connection pooling from Java and ODBC-bridge applications.
+#### JSON-LD (1)
 
-- **Human URL:** [https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-JDBC](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-JDBC)
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Apache Hive Webhcat Context](https://apis.io/jsonld/apache-hive/apache-hive-webhcat-context/)
 
-- JDBC
-- SQL
-- SDK
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-JDBC)
-- [SDK](https://search.maven.org/artifact/org.apache.hive/hive-jdbc)
-- [Postman Collection](collections/apache-hive-webhcat.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/apache-hive-webhcat.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Apache Hive Vocabulary](https://apis.io/vocabularies/apache-hive/apache-hive-vocabulary/)
 
-## Common Properties
+#### Examples (6)
 
-- [LinkedIn](https://www.linkedin.com/company/apache-hive)
+Example requests and responses.
+
+- [Hive Webhcat Column Example](https://apis.io/examples/apache-hive/hive-webhcat-column-example/)
+- [Hive Webhcat Database Example](https://apis.io/examples/apache-hive/hive-webhcat-database-example/)
+- [Hive Webhcat Job Example](https://apis.io/examples/apache-hive/hive-webhcat-job-example/)
+- [Hive Webhcat Partition Example](https://apis.io/examples/apache-hive/hive-webhcat-partition-example/)
+- [Hive Webhcat Queryresult Example](https://apis.io/examples/apache-hive/hive-webhcat-queryresult-example/)
+- [Hive Webhcat Table Example](https://apis.io/examples/apache-hive/hive-webhcat-table-example/)
+
+#### Collections (4)
+
+Postman and Open Collection request collections.
+
+- [Apache Hive WebHCat REST Databases API](https://apis.io/collections/apache-hive/open-apache-hive-databases-api/)
+- [Apache Hive WebHCat REST Databases Jobs API](https://apis.io/collections/apache-hive/open-apache-hive-jobs-api/)
+- [Apache Hive WebHCat REST Databases Tables API](https://apis.io/collections/apache-hive/open-apache-hive-tables-api/)
+- [Apache Hive WebHCat REST API](https://apis.io/collections/apache-hive/open-apache-hive-webhcat/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Apache Hive — jsonschema rules](https://apis.io/rules/apache-hive/apache-hive-jsonschema-spectral-rules/)
+- [Apache Hive API Rules](https://apis.io/rules/apache-hive/apache-hive-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Apache Hive Domain Security](https://apis.io/security/apache-hive/apache-hive-domain-security/)
+- [Apache Hive Vulnerability Disclosure](https://apis.io/security/apache-hive/apache-hive-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Apache Hive Plans Pricing](https://apis.io/plans/apache-hive/apache-hive-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Apache Hive Rate Limits](https://apis.io/rate-limits/apache-hive/apache-hive-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Apache Hive Finops](https://apis.io/finops/apache-hive/apache-hive-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.apache.org/)
 - [Documentation](https://cwiki.apache.org/confluence/display/Hive/Home)
-- [Getting Started](https://cwiki.apache.org/confluence/display/Hive/GettingStarted)
-- [GitHub Organization](https://github.com/apache)
-- [GitHub Repository](https://github.com/apache/hive)
-- [Spectral Rules](rules/apache-hive-spectral-rules.yml)
-- [Vocabulary](vocabulary/apache-hive-vocabulary.yaml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Integrations](https://cwiki.apache.org/confluence/display/connectors)
+- [Getting started](https://cwiki.apache.org/confluence/display/Hive/GettingStarted)
+- [GitHub](https://github.com/apache)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
+**Kin Score 32.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 49.3 |
+| Contract governance | 27.3 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 7.9 |
+
+**Agent readiness 15.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/apache-hive/](https://apis.io/providers/apache-hive/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Apache Hive: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/apache-hive/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
